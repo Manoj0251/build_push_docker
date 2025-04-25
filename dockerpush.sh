@@ -8,7 +8,7 @@ VERSION=$2
 REPO=$1
 echo "Building the docker Image for version:"$VERSION
 docker build -t $REPO:$VERSION .
-# IF you a docker file with a different name , comment the above command and enable below command
+# If you have a docker file with a different name , comment the above command and enable below command
 # docker build -t $REPO:$VERSION -f /path/to/Dockerfile .
 docker images
 IMAGE_ID=$(docker images --format "{{.ID}}" --no-trunc $REPO:$VERSION | cut -c8-19)
